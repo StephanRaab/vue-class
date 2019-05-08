@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue-Class</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ sayHello() }} - <a v-bind:href="link" target="_blank">Votaire</a></h1>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          title: "Hello World!",
+          link: "http://www.votaire.com"
+        },
+        methods: {
+          sayHello: function() {
+            return this.title;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
