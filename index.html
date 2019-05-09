@@ -9,18 +9,26 @@
   </head>
   <body>
     <div id="app">
-     <input type="text" v-model="name">
-     <p>Hello, my name is {{name}}, you killed my father, prepare to die!</p>
+      <button v-on:click="counter--">-</button>
+      <button v-on:click="counter++">+</button>
+      <p>Counter: {{ counter }}</p>
+      <p>Result: {{ output }}</p>
     </div>
 
     <script>
       new Vue({
         el: "#app",
         data: {
-          name: 'Inigo'
+          counter: 0,
+          result: ""
+        },
+        computed: {
+          output: function(){
+            return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
+          }
         },
         methods: {
-         
+
         }
       });
     </script>
