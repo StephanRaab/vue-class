@@ -12,23 +12,26 @@
       <button v-on:click="counter--">-</button>
       <button v-on:click="counter++">+</button>
       <p>Counter: {{ counter }}</p>
-      <p>Result: {{ output }}</p>
+      <p>Result: {{ result() }} | {{ output }}</p>
     </div>
 
     <script>
       new Vue({
         el: "#app",
         data: {
-          counter: 0,
-          result: ""
+          counter: 0
         },
         computed: {
-          output: function(){
-            return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
+          output: function() {
+            console.log("computed");
+            return this.counter > 5 ? "Greater than 5" : "Smaller than 5";
           }
         },
         methods: {
-
+          result: function() {
+            console.log("method");
+            return this.counter > 5 ? "Greater than 5" : "Smaller than 5";
+          }
         }
       });
     </script>
