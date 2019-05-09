@@ -9,13 +9,15 @@
   </head>
   <body>
     <div id="app">
-      <button v-on:click='increase(2, $event)'>Click Me</button>
+      <button v-on:click="increase(2, $event)">Add 2</button>
+      <button v-on:click="counter++">Add 1</button>
       <p>{{ counter }}</p>
+      <p>{{ counter > 10 ? "Greater than 10" : "Smaller than 10" }}</p>
       <p v-on:mousemove="updateCoordinates">
-        Coordinates: {{ x }} / {{ y }} - 
+        Coordinates: {{ x }} / {{ y }} -
         <span v-on:mousemove.stop="">DEAD SPOT</span>
       </p>
-      <input type="text" v-on:keyup.enter="alertMe">
+      <input type="text" v-on:keyup.enter="alertMe" />
     </div>
 
     <script>
@@ -31,15 +33,15 @@
             this.title = "Hello";
             return this.title;
           },
-          increase: function(step, event){
+          increase: function(step, event) {
             this.counter += step;
           },
-          updateCoordinates: function(e){
+          updateCoordinates: function(e) {
             this.x = e.clientX;
             this.y = e.clientY;
           },
           alertMe: function() {
-            alert('Alert!');
+            alert("Alert!");
           }
         }
       });
