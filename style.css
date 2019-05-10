@@ -4,6 +4,7 @@
     background-color: gray;
     display: inline-block;
     margin: 10px;
+    transition: 500ms ease-in-out all;
 }
 
 .red {
