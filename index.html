@@ -5,25 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Vue-Class</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
     <script src="vue.js"></script>
   </head>
   <body>
     <div id="app">
-      <button @click="changeLink">Change Link</button>
-      <a :href="link" target="_blank">Link</a>
+      <div class="demo" @click="attachRed = !attachRed" :class="divClasses"></div>
+      <div class="demo" :class="divClasses"></div>
+      <div class="demo"></div>
     </div>
 
     <script>
       new Vue({
         el: "#app",
         data: {
-          link: "http://google.com"
+          attachRed: false
         },
-        methods: {
-          changeLink: function() {
-            this.link = "https:apple.com";
+        computed: {
+          divClasses: function() {
+            return {
+              red: this.attachRed,
+              blue: !this.attachRed
+            }
           }
-        }
+        }        
       });
     </script>
   </body>
